@@ -1,0 +1,258 @@
+/**
+ * @author Cristian Murillo
+ */
+Ext.define('Estratificacion.controller.Main',{
+	extend:'Ext.app.Controller',
+	
+	models:[
+		'Estratificacion.model.LadoManzana',
+		'Estratificacion.model.consulta.LadoManzana',
+		'Estratificacion.model.Atipicidad'
+	],
+	
+	stores:[
+		'Estratificacion.store.AndenStore',
+		'Estratificacion.store.AntejardinStore',
+		'Estratificacion.store.FachadaStore',
+		'Estratificacion.store.FocoStore',
+		'Estratificacion.store.GarajeStore',
+		'Estratificacion.store.PuertaStore',
+		'Estratificacion.store.ViaStore',
+		'Estratificacion.store.LadoManzana',
+		'Estratificacion.store.AtipicStore',
+		'Estratificacion.store.consulta.LadoManzana',
+		'Estratificacion.store.consulta.Atipicidad'
+	],
+	
+	views:[
+		'Estratificacion.view.LadoVentana',
+		'Estratificacion.view.MenuPpal',
+		'Estratificacion.view.PanelTitulo',
+		'Estratificacion.view.Viewport',
+		'Estratificacion.view.AtipicVentana',
+		'Estratificacion.view.grid.EliminaLadoManzanaGrid',
+		'Estratificacion.view.EliminaLadoManzana',
+		'Estratificacion.view.grid.EliminaAtipicaGrid',
+		'Estratificacion.view.EliminaAtipica'
+	],
+	
+	init: function (application){
+		this.control({
+			"menuppal #op-agregalado":{
+				click: this.abrirFormLado
+			},
+			"menuppal #op-agregatipica":{
+				click: this.abrirBuscaTerreno
+			},
+			
+			"#buscaTerreno":{
+				click: this.buscarTerreno
+			},
+	
+			"#cancela":{
+				click:this.cerrarForm
+				
+			},
+
+			"#op-modificaterreno":{
+				click:this.crearFormBuscaModificaTerreno
+			},
+			
+			"#buscaModificaTerreno":{
+				click:this.buscaModificaTerreno
+			},
+			
+			"#op-eliminalado":{
+				click:this.abrirEliminaLado
+			},
+			
+			"#op-eliminatipica":{
+				click:this.abrirEliminaAtipica
+			}
+			
+			
+		
+		});
+	
+	},
+	
+	crearFormLado:function(){
+		
+		var vLado=Ext.create('Estratificacion.view.LadoVentana');
+		return vLado;
+	},
+	
+	crearFormBuscarTerreno:function(){
+                 
+  	var formBuscarTerreno=Ext.create('Estratificacion.view.BuscaTerrenoForm',{
+								buttons:[{
+									xtype:'button',
+									text:'Buscar',
+									itemId:'buscaTerreno'
+								},
+								{
+									xtype:'button',
+									text:'Cancelar',
+									itemId:'cancela'
+								}]
+		});
+		return formBuscarTerreno;
+	},
+	
+	crearFormAtip:function(){
+		var vAtip=Ext.create('Estratificacion.view.AtipicVentana');
+		return vAtip;
+	},
+	
+	crearEliminaLado:function(){
+				
+		var eliminaLado= Ext.create('Estratificacion.view.EliminaLadoManzana');
+		
+		return eliminaLado;
+	},
+	crearEliminaAtipica:function(){
+		var eliminaAtipica=Ext.create('Estratificacion.view.EliminaAtipica');
+		
+		return eliminaAtipica;
+	},
+	
+	abrirFormLado:function (btn, e, eOpts){
+	
+		this.crearFormLado();
+	},
+	
+	abrirFormAtip:function (btn, e, eOpts){
+	
+		this.crearFormAtip();
+	},
+	
+	abrirBuscaTerreno:function(btn, e, eOpts){
+		this.crearFormBuscarTerreno();
+	},
+	
+	abrirEliminaLado:function(btn, e, eOpts){
+		this.crearEliminaLado();
+	},
+	abrirEliminaAtipica:function(btn, e, eOpts){
+		this.crearEliminaAtipica();
+	},
+	buscarTerreno:function(btn, e, eOpts){
+		
+
+		var ventana=btn.up('window');
+		var formulario=ventana.down('form');
+		var validForm=formulario.getForm();
+			if(validForm.isValid()){
+				validForm.submit({
+					url:'php/BuscarTerreno.php',
+					waitMsg:'Ejecutando Consulta...',
+					waitTitle:'Buscando',
+					success:function(form,action){
+						
+						var data=Ext.JSON.decode(action.response.responseText);
+						
+						ventana.close();
+						
+						var vA= Ext.create('Estratificacion.view.AtipicVentana');
+						
+							Ext.getCmp('cod_predio').setValue(data.data.resultado.cod_predio);
+							Ext.getCmp('direccion').setValue(data.data.resultado.direccion);
+							Ext.getCmp('lado_manz').setValue(data.data.resultado.lado_manz);
+											
+										
+						vA.show();
+						 
+						
+						
+					},
+					failure:function(form, action){
+					var data=Ext.JSON.decode(action.response.responseText);
+					Ext.Msg.show({
+						   title:'Error',
+						   msg: data.errors.reason,
+						   buttons: Ext.Msg.OK,
+						   icon: Ext.MessageBox.ERROR});
+					}
+				
+				});
+			}
+		
+	},
+	
+	crearFormBuscaModificaTerreno:function(btn, e, eOpts){
+	 
+		var formBuscaModificaTerreno=Ext.create('Estratificacion.view.BuscaTerrenoForm',{
+											buttons:[{
+														xtype:'button',
+														text:'Buscar',
+														itemId:'buscaModificaTerreno'
+													},
+													{
+														xtype:'button',
+														text:'Cancelar',
+														itemId:'cancela'
+													}]
+		});
+		
+		return formBuscaModificaTerreno;
+	},
+	
+	buscaModificaTerreno:function(btn, e, eOpts){
+		
+		var ventana=btn.up('window');
+		var formulario=ventana.down('form');
+		var validForm=formulario.getForm();
+			if(validForm.isValid()){
+				validForm.submit({
+					url:'php/BuscaModificaTerreno.php',
+					waitMsg:'Ejecutando Consulta...',
+					waitTitle:'Buscando',
+					success:function(form,action){
+						
+						var data=Ext.JSON.decode(action.response.responseText);
+						
+						ventana.close();
+						
+						var vA= Ext.create('Estratificacion.view.ModificaTerrenoForm');
+						
+							var manzana=data.data.resultado.lado_manz;
+							var lado=data.data.resultado.lado_manz;
+						
+							Ext.getCmp('cod_predio').setValue(data.data.resultado.cod_predio);
+							Ext.getCmp('direccion').setValue(data.data.resultado.direccion);
+							Ext.getCmp('cod_lado').setValue(lado.slice(8,9));
+							Ext.getCmp('manzana').setValue(manzana.slice(0,8));
+
+						vA.show();
+						
+						
+					},
+					failure:function(form, action){
+					var data=Ext.JSON.decode(action.response.responseText);
+					Ext.Msg.show({
+						   title:'Error',
+						   msg: data.errors.reason,
+						   buttons: Ext.Msg.OK,
+						   icon: Ext.MessageBox.ERROR});
+					}
+				
+				});
+			}
+	
+	},
+	
+	cerrarForm:function (btn, e, eOpts){
+	
+		var ventana=btn.up('window');
+		
+		var formulario=ventana.down('form');
+		
+    	formulario.getForm().reset();
+
+		ventana.close();
+	}
+	
+	
+	
+	
+});
