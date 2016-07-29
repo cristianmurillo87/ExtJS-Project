@@ -14,6 +14,7 @@ Ext.Loader.setConfig({
 
 Ext.application({
 	name: 'Estratificacion',
-	extend:'Estratificacion.Application'/*,
+	extend:'Estratificacion.Application',
+    /*,
 	autoCreateViewport: */
 });
