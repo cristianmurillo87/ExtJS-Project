@@ -574,6 +574,7 @@ var toolbar=[],control, controles={};
 		                displayOutsideMaxExtent: true,
 		                displayInLayerSwitcher:true,
 		                isBaseLayer: false,
+						singleTile: true,
 		                minScale:12000,
 		                transitionEffect: null,
 		            	  yx : {'SR-ORG:97393' : false}
