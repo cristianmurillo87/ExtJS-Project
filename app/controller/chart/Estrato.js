@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.controller.chart.DistrEstrato',{
+Ext.define('Estratificacion.controller.chart.Estrato',{
 	extend:'Ext.app.Controller',
 	models:['Estratificacion.model.Estrato',
 			'Estratificacion.model.Grafico'	],

@@ -1,9 +1,9 @@
-Ext.define('Estratificacion.controller.listados.ListadoAtipicas',{
+Ext.define('Estratificacion.controller.lista.Atipica',{
 	extend:'Ext.app.Controller',
-	models:['Estratificacion.model.Atipicidad'],
-	stores:['Estratificacion.store.Atipicidad'],
-	views:['Estratificacion.view.grid.listados.AtipicasGrid',
-		   'Estratificacion.view.Listados'
+	models:['Estratificacion.model.Atipica'],
+	stores:['Estratificacion.store.Atipica'],
+	views:['Estratificacion.view.grid.lista.Atipica',
+		   'Estratificacion.view.Lista'
 	      ],
 	init:function(application){
 		this.control({

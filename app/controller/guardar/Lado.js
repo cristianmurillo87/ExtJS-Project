@@ -1,14 +1,14 @@
-Ext.define('Estratificacion.controller.GuardaAtipica',{
+Ext.define('Estratificacion.controller.guardar.Lado',{
 	extend:'Ext.app.Controller',
 	
 	init:function(application){
 		this.control({
-			"#btn-guardaatipica":{
-				click:this.guardaAtipica
+			"#btn-guardalado":{
+				click:this.guardaLado
 			}
 		});
 	},
-	guardaAtipica:function(btn, e, eOpts){
+	guardaLado:function(btn, e, eOpts){
 		var ventana=btn.up('window');
 		var formulario=ventana.down('form');
 		var valid=formulario.getForm();
@@ -17,7 +17,7 @@ Ext.define('Estratificacion.controller.GuardaAtipica',{
 			if(valid.isValid()){
 
 					valid.submit({
-						url:'php/GuardaAtipica.php',
+						url:'php/GuardaLado.php',
 						waitMsg:'Guardando...',
 						waitTitle:'Espere',
 						success:function(form, action){
@@ -26,22 +26,21 @@ Ext.define('Estratificacion.controller.GuardaAtipica',{
 																		
 							if(data.success=='true'){
 								
-																											
+								valid.reset();
+																			
 								Ext.Msg.show({
 									title:'Aviso',
-									msg:'Se agreg&oacute la atipicidad exitosamente.',
+									msg:'El lado de manzana fue agregado exitosamente.',
 									buttons:Ext.Msg.OK,
 									buttonText:{ok:'Aceptar'},
 									icon:Ext.MessageBox.INFO
 								});
 								
-								ventana.close();
-								
 							}
 							
 							else if(data.success=='false'){
 								
-								
+								valid.reset();
 																
 								Ext.Msg.show({
 									title:'Aviso',
@@ -50,15 +49,15 @@ Ext.define('Estratificacion.controller.GuardaAtipica',{
 									buttonText:{ok:'Aceptar'},
 									icon:Ext.MessageBox.ERROR
 								});
-							
-								ventana.close();
-								
 							}
 						},
 						failure:function(form, action){
 							
-							var data=Ext.JSON.decode(action.response.responseText);			
-													
+							var data=Ext.JSON.decode(action.response.responseText);
+							
+							valid.reset();
+							ladostore.removeAll();
+							
 							Ext.Msg.show({
 									title:'Aviso',
 									msg:data.errors.reason,
@@ -66,9 +65,6 @@ Ext.define('Estratificacion.controller.GuardaAtipica',{
 									buttonText:{ok:'Aceptar'},
 									icon:Ext.MessageBox.ERROR
 								});
-								
-								ventana.close();
-								
 						}
 				});																																				
 																					 	

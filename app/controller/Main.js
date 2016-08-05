@@ -5,27 +5,27 @@ Ext.define('Estratificacion.controller.Main',{
 	extend:'Ext.app.Controller',
 	
 	models:[
-		'Estratificacion.model.LadoManzana',
-		'Estratificacion.model.consulta.LadoManzana',
-		'Estratificacion.model.Atipicidad'
+		'Estratificacion.model.Lado',
+		'Estratificacion.model.consulta.Lado',
+		'Estratificacion.model.Atipica'
 	],
 	
 	stores:[
-		'Estratificacion.store.AndenStore',
-		'Estratificacion.store.AntejardinStore',
-		'Estratificacion.store.FachadaStore',
-		'Estratificacion.store.FocoStore',
-		'Estratificacion.store.GarajeStore',
-		'Estratificacion.store.PuertaStore',
-		'Estratificacion.store.ViaStore',
-		'Estratificacion.store.LadoManzana',
-		'Estratificacion.store.AtipicStore',
-		'Estratificacion.store.consulta.LadoManzana',
-		'Estratificacion.store.consulta.Atipicidad'
+		'Estratificacion.store.Anden',
+		'Estratificacion.store.Antejardin',
+		'Estratificacion.store.Fachada',
+		'Estratificacion.store.Foco',
+		'Estratificacion.store.Garaje',
+		'Estratificacion.store.Puerta',
+		'Estratificacion.store.Via',
+		'Estratificacion.store.Lado',
+		'Estratificacion.store.Atipica',
+		'Estratificacion.store.consulta.Lado',
+		'Estratificacion.store.consulta.Atipica'
 	],
 	
 	views:[
-		'Estratificacion.view.LadoVentana',
+		'Estratificacion.view.Lado',
 		'Estratificacion.view.MenuPpal',
 		'Estratificacion.view.PanelTitulo',
 		'Estratificacion.view.Viewport',

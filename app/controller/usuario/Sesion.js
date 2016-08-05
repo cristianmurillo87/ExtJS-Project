@@ -1,6 +1,6 @@
-Ext.define('Estratificacion.controller.Sesion',{
+Ext.define('Estratificacion.controller.usuario.Sesion',{
 	extend:'Ext.app.Controller',
-	requires:['Estratificacion.view.NuevaContrasena'],
+	requires:['Estratificacion.view.usuario.Contrasena'],
 	
 	init:function(application){
 		this.control({
@@ -28,7 +28,7 @@ Ext.define('Estratificacion.controller.Sesion',{
 		this.crearCambiaClave();
 	},
 	crearCambiaClave:function(){
-		var cambiaClave=Ext.create('Estratificacion.view.NuevaContrasena');
+		var cambiaClave=Ext.create('Estratificacion.view.usuario.Contrasena');
 	},
 	cambiaClave:function(btn, e, eOpts){
 		var ventana=btn.up('window');

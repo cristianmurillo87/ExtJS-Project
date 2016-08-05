@@ -1,23 +1,26 @@
-Ext.define('Estratificacion.controller.EliminaLado',{
+Ext.define('Estratificacion.controller.eliminar.Atipica',{
 	extend:'Ext.app.Controller',
 	
 	init:function(application){
 		this.control({
-			"#btn-eliminalado":{
-				click:this.eliminaLado
+			"#btn-eliminaatipica":{
+				click:this.eliminaAtipica
 			}
 		});
 	},
-	eliminaLado:function(btn, e, eOpts){
+	eliminaAtipica:function(btn, e, eOpts){
+		
 		var ventana=btn.up('window');
 		var formulario=ventana.down('form');
 		var valid=formulario.getForm();
 		
-		var lado= Ext.getCmp('lado_manz').getValue();
-		var msj= '¿Desea eliminar el lado de manzana '+lado+'?';
+		var grid= Ext.getCmp('gridelatipica');
+		var fila=grid.getSelectionModel().getSelection()[0];
+		var predio=fila.data.cod_predio;
 		
-		var gridlado= Ext.getCmp('gridlado');
-		var ladostore=gridlado.getStore();
+		var msj= '¿Desea eliminar la atipicidad para el predio '+predio+'?';
+		
+		var atipicstore=grid.getStore();
 		
 			if(valid.isValid()){
 				Ext.Msg.show({
@@ -29,34 +32,31 @@ Ext.define('Estratificacion.controller.EliminaLado',{
 								fn: function(btn){
 								if (btn=='yes'){
 										valid.submit({
-												url:'php/EliminaLado.php',
+												url:'php/EliminaAtipica.php',
+												params:{predio:predio},
 												waitMsg:'Eliminando...',
 												waitTitle:'Espere',
 												success:function(form, action){
-												var data=Ext.JSON.decode(action.response.responseText);
+													var data=Ext.JSON.decode(action.response.responseText);
 													
 																								
 													if(data.success=='true'){
 														
-														valid.reset();
-														ladostore.removeAll();
-													
-														
-														
-														Ext.Msg.show({
+														 Ext.Msg.show({
 															title:'Aviso',
-															msg:'El lado de manzana '+lado+ 'se elimin&oacute exitosamente.',
+															msg:'La atipicidad del predio '+predio+' se elimin&oacute exitosamente.',
 															buttons:Ext.Msg.OK,
 															buttonText:{ok:'Aceptar'},
 															icon:Ext.MessageBox.INFO
 														});
 														
+														valid.reset();
+														atipicstore.removeAll();
+														ventana.close();
+														
 													}
 													
 													else if(data.success=='false'){
-														
-														valid.reset();
-														ladostore.removeAll();
 														
 														Ext.Msg.show({
 															title:'Aviso',
@@ -65,14 +65,15 @@ Ext.define('Estratificacion.controller.EliminaLado',{
 															buttonText:{ok:'Aceptar'},
 															icon:Ext.MessageBox.ERROR
 														});
+														
+														valid.reset();
+														atipicstore.removeAll();
+														
 													}
 												},
 												failure:function(form, action){
 													
 													var data=Ext.JSON.decode(action.response.responseText);
-													
-													valid.reset();
-													ladostore.removeAll();
 													
 													Ext.Msg.show({
 															title:'Aviso',
@@ -81,6 +82,10 @@ Ext.define('Estratificacion.controller.EliminaLado',{
 															buttonText:{ok:'Aceptar'},
 															icon:Ext.MessageBox.ERROR
 														});
+														
+													valid.reset();
+													atipicstore.removeAll();
+													
 												}
 										});																																				
 																					 	

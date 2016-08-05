@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.controller.chart.DistrComuna',{
+Ext.define('Estratificacion.controller.chart.Comuna',{
     extend:'Ext.app.Controller',
     models:[
         'Estratificacion.model.Comuna',

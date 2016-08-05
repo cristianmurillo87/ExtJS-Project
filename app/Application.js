@@ -78,7 +78,7 @@ Ext.define('Estratificacion.Application',{
 				 'Estratificacion.controller.listados.ListadoTerrenos',
 				 'Estratificacion.controller.listados.ListadoAtipicas',
 				 'Estratificacion.controller.chart.DistrEstrato',
-				 'Estratificacion.controller.chart.DistrComuna',
+				 'Estratificacion.controller.chart.Comuna',
 				 'Estratificacion.controller.Sesion',
 				 'Estratificacion.controller.InfoPredio',
 				 'Estratificacion.controller.Login'

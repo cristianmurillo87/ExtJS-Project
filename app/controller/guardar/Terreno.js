@@ -1,14 +1,14 @@
-Ext.define('Estratificacion.controller.GuardaLado',{
+Ext.define('Estratificacion.controller.guardar.Terreno',{
 	extend:'Ext.app.Controller',
 	
 	init:function(application){
 		this.control({
-			"#btn-guardalado":{
-				click:this.guardaLado
+			"#btn-modificaterreno":{
+				click:this.modificaTerreno
 			}
 		});
 	},
-	guardaLado:function(btn, e, eOpts){
+	modificaTerreno:function(btn, e, eOpts){
 		var ventana=btn.up('window');
 		var formulario=ventana.down('form');
 		var valid=formulario.getForm();
@@ -17,7 +17,7 @@ Ext.define('Estratificacion.controller.GuardaLado',{
 			if(valid.isValid()){
 
 					valid.submit({
-						url:'php/GuardaLado.php',
+						url:'php/ModificaTerreno.php',
 						waitMsg:'Guardando...',
 						waitTitle:'Espere',
 						success:function(form, action){
@@ -26,21 +26,22 @@ Ext.define('Estratificacion.controller.GuardaLado',{
 																		
 							if(data.success=='true'){
 								
-								valid.reset();
-																			
+																											
 								Ext.Msg.show({
 									title:'Aviso',
-									msg:'El lado de manzana fue agregado exitosamente.',
+									msg:'Terreno actualizado exitosamente.',
 									buttons:Ext.Msg.OK,
 									buttonText:{ok:'Aceptar'},
 									icon:Ext.MessageBox.INFO
 								});
 								
+								ventana.close();
+								
 							}
 							
 							else if(data.success=='false'){
 								
-								valid.reset();
+								
 																
 								Ext.Msg.show({
 									title:'Aviso',
@@ -49,15 +50,15 @@ Ext.define('Estratificacion.controller.GuardaLado',{
 									buttonText:{ok:'Aceptar'},
 									icon:Ext.MessageBox.ERROR
 								});
+							
+								ventana.close();
+								
 							}
 						},
 						failure:function(form, action){
 							
-							var data=Ext.JSON.decode(action.response.responseText);
-							
-							valid.reset();
-							ladostore.removeAll();
-							
+							var data=Ext.JSON.decode(action.response.responseText);			
+													
 							Ext.Msg.show({
 									title:'Aviso',
 									msg:data.errors.reason,
@@ -65,6 +66,9 @@ Ext.define('Estratificacion.controller.GuardaLado',{
 									buttonText:{ok:'Aceptar'},
 									icon:Ext.MessageBox.ERROR
 								});
+								
+								ventana.close();
+								
 						}
 				});																																				
 																					 	

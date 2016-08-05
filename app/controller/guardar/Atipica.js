@@ -1,14 +1,14 @@
-Ext.define('Estratificacion.controller.ModificaTerreno',{
+Ext.define('Estratificacion.controller.guardar.Atipica',{
 	extend:'Ext.app.Controller',
 	
 	init:function(application){
 		this.control({
-			"#btn-modificaterreno":{
-				click:this.modificaTerreno
+			"#btn-guardaatipica":{
+				click:this.guardaAtipica
 			}
 		});
 	},
-	modificaTerreno:function(btn, e, eOpts){
+	guardaAtipica:function(btn, e, eOpts){
 		var ventana=btn.up('window');
 		var formulario=ventana.down('form');
 		var valid=formulario.getForm();
@@ -17,7 +17,7 @@ Ext.define('Estratificacion.controller.ModificaTerreno',{
 			if(valid.isValid()){
 
 					valid.submit({
-						url:'php/ModificaTerreno.php',
+						url:'php/GuardaAtipica.php',
 						waitMsg:'Guardando...',
 						waitTitle:'Espere',
 						success:function(form, action){
@@ -29,7 +29,7 @@ Ext.define('Estratificacion.controller.ModificaTerreno',{
 																											
 								Ext.Msg.show({
 									title:'Aviso',
-									msg:'Terreno actualizado exitosamente.',
+									msg:'Se agreg&oacute la atipicidad exitosamente.',
 									buttons:Ext.Msg.OK,
 									buttonText:{ok:'Aceptar'},
 									icon:Ext.MessageBox.INFO

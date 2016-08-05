@@ -1,9 +1,9 @@
-Ext.define('Estratificacion.controller.listados.ListadoLados',{
+Ext.define('Estratificacion.controller.lista.Lado',{
 	extend:'Ext.app.Controller',
-	models:['Estratificacion.model.LadoManzana'],
-	stores:['Estratificacion.store.LadoManzana'],
-	views:['Estratificacion.view.grid.listados.LadosGrid',
-		   'Estratificacion.view.Listados'
+	models:['Estratificacion.model.Lado'],
+	stores:['Estratificacion.store.Lado'],
+	views:['Estratificacion.view.grid.lista.Lado',
+		   'Estratificacion.view.Lista'
 	      ],
 	init:function(application){
 		this.control({
@@ -20,7 +20,7 @@ Ext.define('Estratificacion.controller.listados.ListadoLados',{
 		
 	},
 	crearListadoLados:function(){
-		var listadoLados=Ext.create('Estratificacion.view.Listados');
+		var listadoLados=Ext.create('Estratificacion.view.Lista');
 		
 		return listadoLados;
 	},

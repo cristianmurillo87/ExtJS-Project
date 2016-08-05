@@ -494,7 +494,6 @@ var toolbar=[],control, controles={};
   resultLayer=new OpenLayers.Layer.Vector("Resultado",{styleMap:resultStyleMap});
 
 // Fin de los controles
-
 //Creacion del map panel
   var pmapa=Ext.create('GeoExt.panel.Map',{
 			region:'center',
