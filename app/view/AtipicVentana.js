@@ -2,7 +2,7 @@
  * @author Cristian Murillo
  */
 
-var atipicidad=Ext.create('Estratificacion.store.AtipicStore');
+var atipicidad=Ext.create('Estratificacion.store.Atipica');
 
  	Ext.define('Estratificacion.view.AtipicVentana',{
 			extend:'Ext.window.Window',
@@ -138,8 +138,6 @@ var atipicidad=Ext.create('Estratificacion.store.AtipicStore');
 					itemId:'cancela'
 					}
 					],
-					buttonAlign:'center',
-					autoShow:true,
-					resizable:false
+					buttonAlign:'center'
 		
 	});	

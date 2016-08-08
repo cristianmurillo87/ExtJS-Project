@@ -1,6 +1,6 @@
-var storelado=Ext.create('Estratificacion.store.consulta.Atipicidad');
+var storelado=Ext.create('Estratificacion.store.consulta.Atipica');
 
-Ext.define('Estratificacion.view.grid.EliminaAtipicaGrid',{
+Ext.define('Estratificacion.view.grid.elimina.Atipica',{
 	extend:'Ext.grid.Panel',
 	alias:'widget.grideliminaatipica',
 	id:'gridelatipica',

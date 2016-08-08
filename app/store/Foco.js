@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.store.FocoStore',{
+Ext.define('Estratificacion.store.Foco',{
 						extend:'Ext.data.Store',
 						fields:['fl_foco','nombre'],
 						data:[

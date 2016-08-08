@@ -1,10 +1,10 @@
-Ext.define('Estratificacion.view.grid.listados.LadosGrid',{
+Ext.define('Estratificacion.view.grid.lista.Lado',{
 	extend:'Ext.ux.LiveSearchGridPanel',//'Ext.grid.Panel',
 	alias:'widget.listadoladosgrid',
 	
 	border:false,
 	cls: 'gridCss',
-	store:'Estratificacion.store.LadoManzana',
+	store:'Estratificacion.store.Lado',
 	columns:[
 	{text:'Id', dataIndex:'gid', width:60},
 	{text:'Lado', dataIndex:'lado_manz', width:90},
@@ -35,7 +35,7 @@ Ext.define('Estratificacion.view.grid.listados.LadosGrid',{
 				{
 					xtype: 'pagingtoolbar',
 					border: false,
-			        store: 'Estratificacion.store.LadoManzana',
+			        store: 'Estratificacion.store.Lado',
 			        dock: 'top',
 			        displayInfo: true,
 			        emptyMsg: 'No hay lados de manzana disponibles',

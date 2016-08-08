@@ -1,6 +1,6 @@
-var storelado=Ext.create('Estratificacion.store.consulta.LadoManzana');
+var storelado=Ext.create('Estratificacion.store.consulta.Lado');
 
-Ext.define('Estratificacion.view.grid.EliminaLadoManzanaGrid',{
+Ext.define('Estratificacion.view.grid.elimina.Lado',{
 	extend:'Ext.grid.Panel',
 	alias:'widget.gridlado',
 	id:'gridlado',

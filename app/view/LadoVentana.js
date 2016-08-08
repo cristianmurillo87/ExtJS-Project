@@ -2,7 +2,7 @@ var via=Ext.create('Estratificacion.store.ViaStore');
 
 var foco=Ext.create('Estratificacion.store.FocoStore');
 
-var anden=Ext.create('Estratificacion.store.AndenStore');
+var anden=Ext.create('Estratificacion.store.Anden');
 
 var antejardin=Ext.create('Estratificacion.store.AntejardinStore');
 
@@ -19,7 +19,7 @@ Ext.define('Estratificacion.view.LadoVentana',{
 					require:[
 					'Estratificacion.store.ViaStore',
 					'Estratificacion.store.FocoStore',
-					'Estratificacion.store.AndenStore',
+					'Estratificacion.store.Anden',
 					'Estratificacion.store.AntejardinStore',
 					'Estratificacion.store.GarajeStore',
 					'Estratificacion.store.FachadaStore',

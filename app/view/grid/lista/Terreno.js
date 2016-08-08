@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.view.grid.listados.TerrenosGrid',{
+Ext.define('Estratificacion.view.grid.lista.Terreno',{
 	extend:'Ext.ux.LiveSearchGridPanel',//'Ext.grid.Panel',
 	alias:'widget.listadoterrenosgrid',
 	

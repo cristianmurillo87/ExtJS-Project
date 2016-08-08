@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.store.ViaStore',{
+Ext.define('Estratificacion.store.Via',{
 						extend:'Ext.data.Store',
 						fields:['fl_via','nombre'],
 						data:[

@@ -1,9 +1,9 @@
-Ext.define('Estratificacion.view.grid.listados.AtipicasGrid',{
+Ext.define('Estratificacion.view.grid.lista.Atipica',{
 	extend:'Ext.ux.LiveSearchGridPanel',//'Ext.grid.Panel',
 	alias:'widget.listadoatipicasgrid',
 	
 	border:false,
-	store:'Estratificacion.store.Atipicidad',
+	store:'Estratificacion.store.Atipica',
 	columns:[
 		{text:"Id", dataIndex:'gid',width:60},
 		{text:"Lado", dataIndex:'lado_manz', width:90},
@@ -30,7 +30,7 @@ Ext.define('Estratificacion.view.grid.listados.AtipicasGrid',{
 				{
 					xtype: 'pagingtoolbar',
 					border: false,
-			        store: 'Estratificacion.store.Atipicidad',
+			        store: 'Estratificacion.store.Atipica',
 			        pagesize: 200,
 			        dock: 'top',
 			        displayInfo: true,

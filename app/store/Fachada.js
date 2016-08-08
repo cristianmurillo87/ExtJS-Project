@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.store.FachadaStore',{
+Ext.define('Estratificacion.store.Fachada',{
 						extend:'Ext.data.Store',
 						fields:['fl_fachada','nombre'],
 						data:[

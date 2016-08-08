@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.store.AtipicStore',{
+Ext.define('Estratificacion.store.TipoAtipica',{
 						extend:'Ext.data.Store',
 						fields:['tipo_atip','tipo'],
 						data:[

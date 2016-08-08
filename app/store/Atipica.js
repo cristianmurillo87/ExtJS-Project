@@ -1,9 +1,9 @@
 /**
  * @author Cristian Murillo
  */
-Ext.define('Estratificacion.store.Atipicidad',{
+Ext.define('Estratificacion.store.Atipica',{
 	extend:'Ext.data.Store',
-	model:'Estratificacion.model.Atipicidad',
+	model:'Estratificacion.model.Atipica',
 	fields:['gid','lado_manz','cod_predio','direccion','tipo_atip','estrato','justificacion'],
 	pageSize:200,
 	autoLoad:true,

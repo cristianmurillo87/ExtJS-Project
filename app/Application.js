@@ -35,7 +35,7 @@ Ext.define('Estratificacion.Application',{
 				'Estratificacion.view.Login'
 			],
 			stores:[
-				'Estratificacion.store.AndenStore',
+				'Estratificacion.store.Anden',
 				'Estratificacion.store.AntejardinStore',
 				'Estratificacion.store.FachadaStore',
 				'Estratificacion.store.FocoStore',

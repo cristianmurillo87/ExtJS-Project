@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.model.consulta.LadoManzana',{
+Ext.define('Estratificacion.model.consulta.Lado',{
 	extend:'Ext.data.Model',
 	fields:[
 		{name:'gid', type:'int'},

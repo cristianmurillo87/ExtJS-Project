@@ -1,7 +1,7 @@
 /**
  * @author Cristian Murillo
  */
-Ext.define('Estratificacion.store.ZonaStore',{
+Ext.define('Estratificacion.store.Zona',{
 						extend:'Ext.data.Store',
 						fields:['id','fl_zona'],
 						data:[
