@@ -1,7 +1,7 @@
 /**
  * @author Cristian Murillo
  */
-Ext.define('Estratificacion.model.Atipicidad',{
+Ext.define('Estratificacion.model.Atipica',{
 	extend:'Ext.data.Model',
 	
 	fields:[

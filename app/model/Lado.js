@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.model.LadoManzana',{
+Ext.define('Estratificacion.model.Lado',{
 	extend: 'Ext.data.Model',
 	
 	fields:[

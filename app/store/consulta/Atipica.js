@@ -1,6 +1,6 @@
-Ext.define('Estratificacion.store.consulta.Atipicidad',{
+Ext.define('Estratificacion.store.consulta.Atipica',{
 	extend:'Ext.data.Store',
-	model:'Estratificacion.model.Atipicidad',
+	model:'Estratificacion.model.Atipica',
 	fields:['gid','lado_manz','cod_predio','direccion','tipo_atip','justificacion'],
 	autoLoad:false,
 	proxy:{
