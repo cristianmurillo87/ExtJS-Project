@@ -1,4 +1,4 @@
-Ext.define('Anden',{
+Ext.define('Estratificacion.store.Anden',{
 		extend:'Ext.data.Store',
 		fields:['fl_anden','nombre'],
 		data:[

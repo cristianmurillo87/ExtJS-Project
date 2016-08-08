@@ -1,5 +1,5 @@
 
-Ext.define('Estratificacion.view.EliminaLadoManzana',{
+Ext.define('Estratificacion.view.window.EliminarLado',{
 			extend:'Ext.window.Window',
 			title:'Eliminar Lado de Manzana',
 			id:'ventanaEliminaLado',

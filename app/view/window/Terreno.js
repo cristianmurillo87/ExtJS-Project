@@ -1,7 +1,7 @@
 /**
  * @author Cristian Murillo
  */
-Ext.define('Estratificacion.view.BuscaTerrenoForm',{
+Ext.define('Estratificacion.view.window.Terreno',{
 			extend:'Ext.window.Window',
 			alias:'widget.formBuscaTerreno',
 			title:'Buscar Terreno',

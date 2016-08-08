@@ -1,11 +1,10 @@
-Ext.define('Estratificacion.controller.usuario.Login',{
+Ext.define('Estratificacion.controller.user.Login',{
     extend:'Ext.app.Controller',
     requires:[
-        'Estratificacion.Global',
-        'Estratificacion.view.usuario.Login'
+        'Estratificacion.Global'
     ],
     views:[
-        'Estratificacion.view.usuario.Login'
+        'Estratificacion.view.user.Login'
     ],
     init: function(application){
         this.control({

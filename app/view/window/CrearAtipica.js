@@ -4,7 +4,7 @@
 
 var atipicidad=Ext.create('Estratificacion.store.Atipica');
 
- 	Ext.define('Estratificacion.view.AtipicVentana',{
+ 	Ext.define('Estratificacion.view.window.CrearAtipica',{
 			extend:'Ext.window.Window',
 			title:'Crear/ Editar Atipicidad',
 			modal:true,

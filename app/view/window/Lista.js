@@ -1,14 +1,14 @@
-Ext.define('Estratificacion.view.Listados',{
+Ext.define('Estratificacion.view.window.Lista',{
 			extend:'Ext.window.Window',
 			autoShow:true,
 			modal:true,	
 			border:false,
 			resizable:false,
-			title:'Lados de Manzana',
+			title:'',
 			layout:'fit',
 			width:745,
 			height:420,
 			items:[{
-				xtype:'listadoladosgrid'
+				xtype:'listadosgrid'
 			}]
 		});

@@ -1,6 +1,3 @@
-/**
- * @author Cristian Murillo
- */
 Ext.define('Estratificacion.store.Barrio',{
 	extend:'Ext.data.Store',
 	model:'Estratificacion.model.Barrio',

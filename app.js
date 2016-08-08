@@ -1,6 +1,3 @@
-/**
- * @author Cristian Murillo
- */
 Ext.Loader.setConfig({
     enabled: true,
     disableCaching: false,
@@ -14,7 +11,5 @@ Ext.Loader.setConfig({
 
 Ext.application({
 	name: 'Estratificacion',
-	extend:'Estratificacion.Application',
-    /*,
-	autoCreateViewport: */
+	extend:'Estratificacion.Application'
 });

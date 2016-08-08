@@ -1,6 +1,6 @@
 Ext.define('Estratificacion.view.grid.lista.Lado',{
 	extend:'Ext.ux.LiveSearchGridPanel',//'Ext.grid.Panel',
-	alias:'widget.listadoladosgrid',
+	alias:'widget.listadosgrid',
 	
 	border:false,
 	cls: 'gridCss',

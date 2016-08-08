@@ -1,5 +1,5 @@
 
-Ext.define('Estratificacion.view.EliminaAtipica',{
+Ext.define('Estratificacion.view.window.EliminarAtipica',{
 			extend:'Ext.window.Window',
 			title:'Eliminar Atipicidad',
 			id:'ventanaEliminaAtipica',

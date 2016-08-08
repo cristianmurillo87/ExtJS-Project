@@ -1,30 +1,30 @@
-var via=Ext.create('Estratificacion.store.ViaStore');
+var via=Ext.create('Estratificacion.store.Via');
 
-var foco=Ext.create('Estratificacion.store.FocoStore');
+var foco=Ext.create('Estratificacion.store.Foco');
 
 var anden=Ext.create('Estratificacion.store.Anden');
 
-var antejardin=Ext.create('Estratificacion.store.AntejardinStore');
+var antejardin=Ext.create('Estratificacion.store.Antejardin');
 
-var garaje=Ext.create('Estratificacion.store.GarajeStore');
+var garaje=Ext.create('Estratificacion.store.Garaje');
 
-var fachada=Ext.create('Estratificacion.store.FachadaStore');
+var fachada=Ext.create('Estratificacion.store.Fachada');
 
-var puerta=Ext.create('Estratificacion.store.PuertaStore');
+var puerta=Ext.create('Estratificacion.store.Puerta');
 
-var zona=Ext.create('Estratificacion.store.ZonaStore');
+var zona=Ext.create('Estratificacion.store.Zona');
 
 
-Ext.define('Estratificacion.view.LadoVentana',{
+Ext.define('Estratificacion.view.window.CrearLado',{
 					require:[
-					'Estratificacion.store.ViaStore',
-					'Estratificacion.store.FocoStore',
+					'Estratificacion.store.Via',
+					'Estratificacion.store.Foco',
 					'Estratificacion.store.Anden',
-					'Estratificacion.store.AntejardinStore',
-					'Estratificacion.store.GarajeStore',
-					'Estratificacion.store.FachadaStore',
-					'Estratificacion.store.PuertaStore',
-					'Estratificacion.store.ZonaStore'
+					'Estratificacion.store.Antejardin',
+					'Estratificacion.store.Garaje',
+					'Estratificacion.store.Fachada',
+					'Estratificacion.store.Puerta',
+					'Estratificacion.store.Zona'
 					],
 					extend:'Ext.window.Window',
 					title:'Crear/ Editar Lado de Manzana',
@@ -282,7 +282,6 @@ Ext.define('Estratificacion.view.LadoVentana',{
 													name:'fl_zona',
 													labelSeparator:'',
 													fieldLabel:'8. Zona',
-													name:'zona',
 													store:zona,
 													queryMode:'local',
 													displayField: 'id',

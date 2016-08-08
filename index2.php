@@ -54,9 +54,6 @@
         <script>
             Ext.require([
                 'Estratificacion.Global',
-                'Estratificacion.store.FachadaStore',
-                'Estratificacion.view.MenuPpal',
-                'Estratificacion.view.PanelTitulo',
                 'GeoExt.data.ScaleStore',
                 'GeoExt.Action',
                 'GeoExt.tree.LayerLoader',

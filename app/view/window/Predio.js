@@ -132,7 +132,7 @@ var infoPredio=function(field){// obtiene informacion de los elementos del tree 
 
 
 
-Ext.define('Estratificacion.view.InfoPredio',{//ventana para mostrar el arbol con elementos encontrados y la informacion de los elementos identificados
+Ext.define('Estratificacion.view.window.Predio',{//ventana para mostrar el arbol con elementos encontrados y la informacion de los elementos identificados
 		extend:'Ext.window.Window',
 		title:'Consultar Predio',
 		itemId:'win-infopredio',

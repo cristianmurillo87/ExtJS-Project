@@ -35,15 +35,15 @@
                     });
                     
                     Ext.require([
-                        'Estratificacion.controller.Login',
-                        'Estratificacion.view.Login',
+                        'Estratificacion.controller.user.Login',
+                        'Estratificacion.view.user.Login',
                         'Estratificacion.Global'
                     ]);
 
                     Ext.onReady(function(){
                         Ext.QuickTips.init();
                         
-                        Ext.create('Estratificacion.view.Login');
+                        Ext.create('Estratificacion.view.user.Login');
                             
                     });
     

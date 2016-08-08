@@ -2,7 +2,7 @@
  * @author Cristian Murillo
  */
 
- 	Ext.define('Estratificacion.view.NuevaContrasena',{
+ 	Ext.define('Estratificacion.view.user.Contrasena',{
 			extend:'Ext.window.Window',
 			title:'Cambiar Contrase&ntildea',
 			modal:true,

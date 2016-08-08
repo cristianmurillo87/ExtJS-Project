@@ -1,4 +1,4 @@
-Ext.define('Estratificacion.view.Login',{
+Ext.define('Estratificacion.view.user.Login',{
     extend:'Ext.window.Window',
     alias:'widget.login',
     xtype:'login',
@@ -73,7 +73,6 @@ Ext.define('Estratificacion.view.Login',{
                                         
                                         if (success){
                                                var message = data.message;
-                                               sessionStorage.setItem('LoggedIn', true);
                                                Ext.state.Manager.set('isUserLoggedIn', true);
                                                Ext.state.Manager.set('LoggedUserName', data.message.nom_usuario);
                                                Ext.state.Manager.set('LoggedUserNameName', data.message.nombre);
@@ -90,7 +89,7 @@ Ext.define('Estratificacion.view.Login',{
                                                Global.set('consultar', data.message.consulta);
                                                Global.set('ver', data.message.usuario);
                                                w.close();
-                                               Ext.create('Estratificacion.view.Viewport');
+                                               Ext.create('Estratificacion.view.main.Viewport');
                                            }});
                                            
                                         }

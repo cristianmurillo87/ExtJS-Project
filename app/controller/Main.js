@@ -1,6 +1,3 @@
-/**
- * @author Cristian Murillo
- */
 Ext.define('Estratificacion.controller.Main',{
 	extend:'Ext.app.Controller',
 	
@@ -25,15 +22,16 @@ Ext.define('Estratificacion.controller.Main',{
 	],
 	
 	views:[
-		'Estratificacion.view.Lado',
-		'Estratificacion.view.MenuPpal',
-		'Estratificacion.view.PanelTitulo',
-		'Estratificacion.view.Viewport',
-		'Estratificacion.view.AtipicVentana',
-		'Estratificacion.view.grid.EliminaLadoManzanaGrid',
-		'Estratificacion.view.EliminaLadoManzana',
-		'Estratificacion.view.grid.EliminaAtipicaGrid',
-		'Estratificacion.view.EliminaAtipica'
+		'Estratificacion.view.window.Lista',
+		'Estratificacion.view.main.Menu',
+		'Estratificacion.view.main.Titulo',
+		'Estratificacion.view.main.Viewport',
+		'Estratificacion.view.window.CrearAtipica',
+		'Estratificacion.view.window.CrearLado',
+		'Estratificacion.view.grid.elimina.Lado',
+		'Estratificacion.view.window.EliminarLado',
+		'Estratificacion.view.grid.elimina.Atipica',
+		'Estratificacion.view.window.EliminarAtipica'
 	],
 	
 	init: function (application){
@@ -78,13 +76,13 @@ Ext.define('Estratificacion.controller.Main',{
 	
 	crearFormLado:function(){
 		
-		var vLado=Ext.create('Estratificacion.view.LadoVentana');
+		var vLado=Ext.create('Estratificacion.view.window.Lista');
 		return vLado;
 	},
 	
 	crearFormBuscarTerreno:function(){
                  
-  	var formBuscarTerreno=Ext.create('Estratificacion.view.BuscaTerrenoForm',{
+  	var formBuscarTerreno=Ext.create('Estratificacion.view.window.Terreno',{
 								buttons:[{
 									xtype:'button',
 									text:'Buscar',
@@ -100,18 +98,18 @@ Ext.define('Estratificacion.controller.Main',{
 	},
 	
 	crearFormAtip:function(){
-		var vAtip=Ext.create('Estratificacion.view.AtipicVentana');
+		var vAtip=Ext.create('Estratificacion.view.window.CrearAtipica');
 		return vAtip;
 	},
 	
 	crearEliminaLado:function(){
 				
-		var eliminaLado= Ext.create('Estratificacion.view.EliminaLadoManzana');
+		var eliminaLado= Ext.create('Estratificacion.view.window.EliminarLado');
 		
 		return eliminaLado;
 	},
 	crearEliminaAtipica:function(){
-		var eliminaAtipica=Ext.create('Estratificacion.view.EliminaAtipica');
+		var eliminaAtipica=Ext.create('Estratificacion.view.window.EliminarAtipica');
 		
 		return eliminaAtipica;
 	},
@@ -153,7 +151,7 @@ Ext.define('Estratificacion.controller.Main',{
 						
 						ventana.close();
 						
-						var vA= Ext.create('Estratificacion.view.AtipicVentana');
+						var vA= Ext.create('Estratificacion.view.window.CrearAtipica');
 						
 							Ext.getCmp('cod_predio').setValue(data.data.resultado.cod_predio);
 							Ext.getCmp('direccion').setValue(data.data.resultado.direccion);

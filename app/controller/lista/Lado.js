@@ -3,14 +3,14 @@ Ext.define('Estratificacion.controller.lista.Lado',{
 	models:['Estratificacion.model.Lado'],
 	stores:['Estratificacion.store.Lado'],
 	views:['Estratificacion.view.grid.lista.Lado',
-		   'Estratificacion.view.Lista'
+		   'Estratificacion.view.window.Lista'
 	      ],
 	init:function(application){
 		this.control({
 			"#op-listalados":{
 				click:this.abrirListadoLados
 			},
-			"listadoladosgrid button#tb-btn-eliminalado ":{
+			"listadosgrid button#tb-btn-eliminalado ":{
 				click:this.borrarLado
 			}
 		});
@@ -20,7 +20,7 @@ Ext.define('Estratificacion.controller.lista.Lado',{
 		
 	},
 	crearListadoLados:function(){
-		var listadoLados=Ext.create('Estratificacion.view.Lista');
+		var listadoLados=Ext.create('Estratificacion.view.window.Lista');
 		
 		return listadoLados;
 	},

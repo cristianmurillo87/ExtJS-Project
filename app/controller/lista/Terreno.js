@@ -3,7 +3,7 @@ Ext.define('Estratificacion.controller.lista.Terreno',{
 	models:['Estratificacion.model.Terreno'],
 	stores:['Estratificacion.store.Terreno'],
 	views:['Estratificacion.view.grid.lista.Terreno',
-		   'Estratificacion.view.Lista'
+		   'Estratificacion.view.window.Lista'
 	      ],
 	init:function(application){
 		this.control({
@@ -17,7 +17,7 @@ Ext.define('Estratificacion.controller.lista.Terreno',{
 		
 	},
 	crearListadoTerrenos:function(){
-		var listadoTerrenos=Ext.create('Estratificacion.view.Lista',{
+		var listadoTerrenos=Ext.create('Estratificacion.view.window.Lista',{
 				title:'Listado de Predios',
 				items:[{xtype:'listadoterrenosgrid'}]
 		

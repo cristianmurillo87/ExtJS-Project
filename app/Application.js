@@ -1,9 +1,9 @@
 Ext.define('Estratificacion.Application',{
-			name:'Estratificacion',
 			extend:'Ext.app.Application',
 			requires:[
 				'Estratificacion.Global',
 				'Ext.ux.LiveSearchGridPanel',
+				'Ext.state.*',				
 				'GeoExt.Action',
 				'GeoExt.data.ScaleStore',
 				'GeoExt.tree.LayerLoader',
@@ -14,51 +14,48 @@ Ext.define('Estratificacion.Application',{
 			    'GeoExt.data.LayerTreeModel'
 			],
 			views:[
-				'Estratificacion.view.Viewport',
-				'Estratificacion.view.MenuPpal',
-				'Estratificacion.view.PanelTitulo',
-				'Estratificacion.view.Viewport',
-				'Estratificacion.view.AtipicVentana',
-				'Estratificacion.view.grid.EliminaLadoManzanaGrid',
-				'Estratificacion.view.grid.listados.LadosGrid',
-				'Estratificacion.view.grid.listados.TerrenosGrid',
-				'Estratificacion.view.grid.listados.AtipicasGrid',
-				'Estratificacion.view.EliminaLadoManzana',
-				'Estratificacion.view.BuscaTerrenoForm',
-				'Estratificacion.view.ModificaTerrenoForm',
-				'Estratificacion.view.grid.EliminaAtipicaGrid',
-				'Estratificacion.view.EliminaAtipica',
-				'Estratificacion.view.Listados',
+				'Estratificacion.view.main.Viewport',
+				'Estratificacion.view.main.Menu',
+				'Estratificacion.view.main.Titulo',
+				'Estratificacion.view.window.CrearAtipica',
+				'Estratificacion.view.grid.elimina.Lado',
+				'Estratificacion.view.grid.lista.Lado',
+				'Estratificacion.view.grid.lista.Terreno',
+				'Estratificacion.view.grid.lista.Atipica',
+				'Estratificacion.view.grid.elimina.Lado',
+				'Estratificacion.view.window.Terreno',
+				'Estratificacion.view.window.EditarTerreno',
+				'Estratificacion.view.grid.elimina.Atipica',
+				'Estratificacion.view.window.EliminarAtipica',
+				'Estratificacion.view.window.Lista',
 				'Estratificacion.view.chart.Estrato',
-				'Estratificacion.view.NuevaContrasena',
-				'Estratificacion.view.InfoPredio',
-				'Estratificacion.view.Login'
+				'Estratificacion.view.user.Contrasena',
+				'Estratificacion.view.window.Predio',
+				'Estratificacion.view.user.Login'
 			],
 			stores:[
 				'Estratificacion.store.Anden',
-				'Estratificacion.store.AntejardinStore',
-				'Estratificacion.store.FachadaStore',
-				'Estratificacion.store.FocoStore',
-				'Estratificacion.store.GarajeStore',
-				'Estratificacion.store.PuertaStore',
-				'Estratificacion.store.ViaStore',
-				'Estratificacion.store.LadoManzana',
-				'Estratificacion.store.AtipicStore',
-				'Estratificacion.store.ZonaStore',
+				'Estratificacion.store.Antejardin',
+				'Estratificacion.store.Fachada',
+				'Estratificacion.store.Foco',
+				'Estratificacion.store.Garaje',
+				'Estratificacion.store.Puerta',
+				'Estratificacion.store.Via',
+				'Estratificacion.store.Lado',
+				'Estratificacion.store.Atipica',
+				'Estratificacion.store.Zona',
 				'Estratificacion.store.Terreno',
-				'Estratificacion.store.Atipicidad',
 				'Estratificacion.store.Estrato',
 				'Estratificacion.store.Grafico',
 				'Estratificacion.store.Comuna',
 				'Estratificacion.store.Barrio',
-				'Estratificacion.store.consulta.LadoManzana',
-				'Estratificacion.store.consulta.LadoManzana',
-				'Estratificacion.store.consulta.Atipicidad'
+				'Estratificacion.store.consulta.Lado',
+				'Estratificacion.store.consulta.Atipica'
 			],
 			models:[
-				'Estratificacion.model.LadoManzana',
-				'Estratificacion.model.consulta.LadoManzana',
-				'Estratificacion.model.Atipicidad',
+				'Estratificacion.model.Lado',
+				'Estratificacion.model.consulta.Lado',
+				'Estratificacion.model.Atipica',
 				'Estratificacion.model.Terreno',
 				'Estratificacion.model.Estrato',
 				'Estratificacion.model.Grafico',
@@ -69,19 +66,19 @@ Ext.define('Estratificacion.Application',{
 			],
 			controllers:[
 				 'Estratificacion.controller.Main',
-				 'Estratificacion.controller.EliminaLado',
-				 'Estratificacion.controller.GuardaLado',
-				 'Estratificacion.controller.GuardaAtipica',
-				 'Estratificacion.controller.ModificaTerreno',
-				 'Estratificacion.controller.EliminaAtipica',
-				 'Estratificacion.controller.listados.ListadoLados',
-				 'Estratificacion.controller.listados.ListadoTerrenos',
-				 'Estratificacion.controller.listados.ListadoAtipicas',
-				 'Estratificacion.controller.chart.DistrEstrato',
+				 'Estratificacion.controller.eliminar.Lado',
+				 'Estratificacion.controller.guardar.Lado',
+				 'Estratificacion.controller.guardar.Atipica',
+				 'Estratificacion.controller.guardar.Terreno',
+				 'Estratificacion.controller.eliminar.Atipica',
+				 'Estratificacion.controller.lista.Lado',
+				 'Estratificacion.controller.lista.Terreno',
+				 'Estratificacion.controller.lista.Atipica',
+				 'Estratificacion.controller.chart.Estrato',
 				 'Estratificacion.controller.chart.Comuna',
-				 'Estratificacion.controller.Sesion',
-				 'Estratificacion.controller.InfoPredio',
-				 'Estratificacion.controller.Login'
+				 'Estratificacion.controller.user.Sesion',
+				 'Estratificacion.controller.info.Predio',
+				 'Estratificacion.controller.user.Login'
 			],
 			launch: function(){
 				Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
@@ -92,6 +89,8 @@ Ext.define('Estratificacion.Application',{
 				var loggedIn;
 				
 				loggedIn = Ext.state.Manager.get('isUserLoggedIn');
+				
+				//console.log(loggedIn);
 				
 				Ext.widget(loggedIn ? 'main': 'login');
 				

@@ -11,6 +11,6 @@ Ext.define('Estratificacion.store.Estrato',{
 					{estrato:'5', nombre:'Estrato 5'},
 					{estrato:'6', nombre:'Estrato 6'}
 				],
-				autoLoad:true
+				autoLoad:false
 			
 });

@@ -1,7 +1,7 @@
 /**
  * @autor Cristian Murillo
  */
-Ext.define('Estratificacion.view.ModificaTerrenoForm',{
+Ext.define('Estratificacion.view.window.EditarTerreno',{
 			extend:'Ext.window.Window',
 			title:'Modificar Info de Terreno',
 			modal:true,

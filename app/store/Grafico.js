@@ -7,5 +7,5 @@ Ext.define('Estratificacion.store.Grafico',{
 					{tipo:'column', nombre:'Columnas'},
 					{tipo:'bar', nombre:'Barras'}
 				],
-				autoLoad:true
+				autoLoad:false
 		});

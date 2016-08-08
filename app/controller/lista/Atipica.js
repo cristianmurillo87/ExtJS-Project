@@ -3,7 +3,7 @@ Ext.define('Estratificacion.controller.lista.Atipica',{
 	models:['Estratificacion.model.Atipica'],
 	stores:['Estratificacion.store.Atipica'],
 	views:['Estratificacion.view.grid.lista.Atipica',
-		   'Estratificacion.view.Lista'
+		   'Estratificacion.view.window.Lista'
 	      ],
 	init:function(application){
 		this.control({
@@ -20,7 +20,7 @@ Ext.define('Estratificacion.controller.lista.Atipica',{
 		
 	},
 	crearListadoAtipicas:function(){
-		var listadoAtipicas=Ext.create('Estratificacion.view.Listados',{
+		var listadoAtipicas=Ext.create('Estratificacion.view.window.Lista',{
 				title:'Listado de Atipicas',
 				items:[{xtype:'listadoatipicasgrid'}]
 		

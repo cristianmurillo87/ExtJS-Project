@@ -12,7 +12,8 @@ var lyrsCartoBase=Ext.create('GeoExt.tree.LayerLoader',{
 	}
 });
 
-Ext.create('Ext.data.TreeStore',{
+Ext.create('Estratificacion.store.layer.Capa',{
+	extend:'Ext.data.TreeStore',
 	model:'GeoExt.data.LayerTreeModel',
 	root:{
 		expanded:true,

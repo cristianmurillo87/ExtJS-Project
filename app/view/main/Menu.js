@@ -1,5 +1,5 @@
 
-Ext.define('Estratificacion.view.MenuPpal',{
+Ext.define('Estratificacion.view.main.Menu',{
 			extend:'Ext.toolbar.Toolbar',
 			alias:'widget.menuppal',
 			itemId:'menuppal',

@@ -1,4 +1,0 @@
-/**
- * @author Cristian Murillo
- */
-

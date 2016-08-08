@@ -1,6 +1,4 @@
-	/**
- * @author Cristian Murillo
- */
+
 Ext.require([
     'Ext.container.Viewport',
     'Ext.layout.container.Border',
@@ -19,15 +17,15 @@ Ext.require([
     'GeoExt.container.UrlLegend',
     'GeoExt.tree.Column',
     'Ext.util.Point',
-    'Estratificacion.store.FachadaStore',
-    'Estratificacion.view.MenuPpal',
-    'Estratificacion.view.PanelTitulo'
+    'Estratificacion.store.Fachada',
+    'Estratificacion.view.main.Menu',
+    'Estratificacion.view.main.Titulo'
 ]);
 
 
 var apikey='AIzaSyDdYoQnPyaa6rF2AV_YfFJQvx0lwIvGBBQ';
 
-var ptitulo=Ext.create('Estratificacion.view.PanelTitulo');
+var ptitulo=Ext.create('Estratificacion.view.main.Titulo');
 var treeStore, x, y, el;
 var resultLayer;
 
@@ -943,7 +941,7 @@ var buscacomuna={
 var pbuscar=Ext.create('Ext.panel.Panel',{
     height:170,
     border:false,
-		layout:{type:'accordion',hideCollapseTool:false},
+		layout:{type:'accordion',hideCollapseTool:true},
 		  items:[
 				 {
 				 	title:'Busqueda por Codigo Predial',
@@ -1069,6 +1067,7 @@ var buscaStore=Ext.create('Ext.data.Store',{// definir las opcciones para el com
 
 treeStore=Ext.create('Ext.data.TreeStore',{//para almacenar los registros anotados por la consulta
 									model:'Estratificacion.model.TreeStore',
+									autoLoad:false,
 									proxy:{
 										type:'ajax',
 										url:'php/llenarArbol.php'
@@ -1077,9 +1076,9 @@ treeStore=Ext.create('Ext.data.TreeStore',{//para almacenar los registros anotad
 									root:{
 										text:'Resultado',
 										iconCls: '',
-										expanded:true
-									},
-									autoLoad:false
+										expanded:true,
+										loaded:true
+									}
 							});
 
 
@@ -1279,7 +1278,7 @@ var tabpanel=Ext.create('Ext.tab.Panel',{
 	});
 //creacion del de la clase Viewport
 
-Ext.define('Estratificacion.view.Viewport',{
+Ext.define('Estratificacion.view.main.Viewport',{
 	extend:'Ext.container.Viewport',
 	requires:[
 		'Ext.container.Viewport',
@@ -1299,11 +1298,11 @@ Ext.define('Estratificacion.view.Viewport',{
   		'Ext.tip.*',
   		'Ext.Button',
   		'Ext.ux.LiveSearchGridPanel',
-  		'Estratificacion.view.MenuPpal',
-  		'Estratificacion.view.PanelTitulo',
-    	'Estratificacion.view.AtipicVentana',
-		'Estratificacion.view.grid.EliminaLadoManzanaGrid',
-    	'Estratificacion.view.EliminaLadoManzana'
+  		'Estratificacion.view.main.Menu',
+  		'Estratificacion.view.main.Titulo',
+    	'Estratificacion.view.window.CrearAtipica',
+		'Estratificacion.view.grid.elimina.Lado',
+    	'Estratificacion.view.window.EliminarLado'
 	],
 	layout: 'border',
 	//plugins: 'viewport',

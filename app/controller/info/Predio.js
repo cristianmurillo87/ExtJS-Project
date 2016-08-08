@@ -1,6 +1,6 @@
 Ext.define('Estratificacion.controller.info.Predio',{
 	extend:'Ext.app.Controller',
-	requires:['Estratificacion.view.info.Predio'],
+	requires:['Estratificacion.view.window.Predio'],
 	
 	init:function(application){
 		this.control({
@@ -14,7 +14,7 @@ Ext.define('Estratificacion.controller.info.Predio',{
 		var a=Ext.ComponentQuery.query('#win-infopredio')[0];
 		
 		if(!a){
-			a=Ext.create('Estratificacion.view.info.Predio');
+			a=Ext.create('Estratificacion.view.window.Predio');
 			a.show();
 		}
 		
