@@ -230,7 +230,15 @@ var toolbar=[],control, controles={};
     	map:mapa,
     	enableToggle: true,
     	tooltip: "Medir Distancia",
-    	allowDepress:true
+    	allowDepress:true,
+		listeners:{
+			activate:function () {
+				mapa.getViewport().style.cursor = 'crosshair';
+			},
+			deactivate: function(){
+				mapa.getViewport().style.cursor = 'auto';
+			}
+		}
 	});
 
 	mapa.addControl(dist);
@@ -340,6 +348,7 @@ var toolbar=[],control, controles={};
     							listeners:{
     								  close:function(){
     								     streetViewCtrl.deactivate();
+										 mapa.getViewport().style.cursor = 'auto';
     								  }
     							}
   							});
@@ -388,6 +397,7 @@ var toolbar=[],control, controles={};
     	listeners:{
     			activate:function(){
     				streetViewCtrl.activate();
+
     		},
     			deactivate:function(){
     				streetViewCtrl.deactivate();
@@ -444,11 +454,11 @@ var toolbar=[],control, controles={};
     	map:mapa,
     	listeners:{
     		click:function(){
-    		    if(!infoVentana.isVisible()){infoVentana.show(); mapa.cursor='pointer';}
-      	},
-    	  activate:function(){
-    		    mapa.cursor='pointer';
-        }
+    		    if(!infoVentana.isVisible()){
+					infoVentana.show(); 
+					mapa.getViewport().style.cursor='help';
+				}
+      	}
      }
 
 	 });
@@ -1253,6 +1263,7 @@ var infoVentana=Ext.create('Ext.window.Window',{//ventana para mostrar el arbol 
 
 				identiCtrl.deactivate();
 				property.setSource({"":""});
+				mapa.getViewport().style.cursor='auto';
 
 			}
 		}

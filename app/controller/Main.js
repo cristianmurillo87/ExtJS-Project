@@ -76,7 +76,7 @@ Ext.define('Estratificacion.controller.Main',{
 	
 	crearFormLado:function(){
 		
-		var vLado=Ext.create('Estratificacion.view.window.Lista');
+		var vLado=Ext.create('Estratificacion.view.window.Terreno');
 		return vLado;
 	},
 	
@@ -179,7 +179,7 @@ Ext.define('Estratificacion.controller.Main',{
 	
 	crearFormBuscaModificaTerreno:function(btn, e, eOpts){
 	 
-		var formBuscaModificaTerreno=Ext.create('Estratificacion.view.BuscaTerrenoForm',{
+		var formBuscaModificaTerreno=Ext.create('Estratificacion.view.window.Terreno',{
 											buttons:[{
 														xtype:'button',
 														text:'Buscar',
@@ -211,7 +211,7 @@ Ext.define('Estratificacion.controller.Main',{
 						
 						ventana.close();
 						
-						var vA= Ext.create('Estratificacion.view.ModificaTerrenoForm');
+						var vA= Ext.create('Estratificacion.view.window.EditarTerreno');
 						
 							var manzana=data.data.resultado.lado_manz;
 							var lado=data.data.resultado.lado_manz;
