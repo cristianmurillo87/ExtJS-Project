@@ -1,67 +1,67 @@
 Ext.define("Estratificacion.Global", {
-	 
+
 	singleton: true,
-	alternateClassName:['Global'],   
-	constructor: function(config){
+	alternateClassName: ['Global'],
+	constructor: function(config) {
 		this.initConfig(config);
 	},
-	config:{
+	config: {
 		baseUrl: window.location.origin + '/estratificacion',
-		usuario:"Some",
-		nombre:"User",
-		apellido:"Logged",
+		usuario: "Some",
+		nombre: "User",
+		apellido: "Logged",
 		administrar: false,
 		consultar: false,
 		ver: false,
-		webfont:'FontAwesome',
-		pan:'xf047',
-		zoomfull:'xf0ac',
-		zoomin:'xf00e',
-		zoomout:'xf010',
-		zoomprev:'xf0e2',
-		zoomnext:'xf01e',
-		select:'xf247',
-		distance:'xf07e',
-		area:'xf1fe',
-		streetview:'xf21d',
-		info:'xf05a',
+		webfont: 'FontAwesome',
+		pan: 'xf047',
+		zoomfull: 'xf0ac',
+		zoomin: 'xf00e',
+		zoomout: 'xf010',
+		zoomprev: 'xf0e2',
+		zoomnext: 'xf01e',
+		select: 'xf247',
+		distance: 'xf07e',
+		area: 'xf1fe',
+		streetview: 'xf21d',
+		info: 'xf05a',
 		unselect: 'xf248'
 	},
-	setIcon: function (glyph){
+	setIcon: function(glyph) {
 		return Global.getGlyph(glyph);
 	},
-	setUser: function(value){
+	setUser: function(value) {
 		Global.config['usuario'] = value;
 	},
-	set: function (role, value){
+	set: function(role, value) {
 		Global.config[role] = value;
 	},
-	getIcon: function (glyph){
+	getIcon: function(glyph) {
 		return Global.getGlyph(glyph);
 	},
-	getGlyph: function(glyph){
+	getGlyph: function(glyph) {
 		var font = Global.getWebfont();
-		if (typeof Global.config[glyph]==='undefined'){
+		if (typeof Global.config[glyph] === 'undefined') {
 			return false;
 		}
 
-		return Global.config[glyph] + '@' + font; 
+		return Global.config[glyph] + '@' + font;
 	},
-	getUser: function(){
+	getUser: function() {
 		return Global.config['usuario'];
 	},
-	getUserName:function(){
-		return Global.config['nombre']+' '+Global.config['apellido'];
+	getUserName: function() {
+		return Global.config['nombre'] + ' ' + Global.config['apellido'];
 	},
-	isAdmin: function(){
+	isAdmin: function() {
 		var admin = Global.config['administrar'];
-		if(admin === true){
+		if (admin === true) {
 			return true;
 		}
 		return false;
 	}
 
 
-	  
+
 
 });

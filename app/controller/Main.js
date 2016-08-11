@@ -1,13 +1,13 @@
-Ext.define('Estratificacion.controller.Main',{
-	extend:'Ext.app.Controller',
-	
-	models:[
+Ext.define('Estratificacion.controller.Main', {
+	extend: 'Ext.app.Controller',
+
+	models: [
 		'Estratificacion.model.Lado',
 		'Estratificacion.model.consulta.Lado',
 		'Estratificacion.model.Atipica'
 	],
-	
-	stores:[
+
+	stores: [
 		'Estratificacion.store.Anden',
 		'Estratificacion.store.Antejardin',
 		'Estratificacion.store.Fachada',
@@ -20,8 +20,8 @@ Ext.define('Estratificacion.controller.Main',{
 		'Estratificacion.store.consulta.Lado',
 		'Estratificacion.store.consulta.Atipica'
 	],
-	
-	views:[
+
+	views: [
 		'Estratificacion.view.window.Lista',
 		'Estratificacion.view.main.Menu',
 		'Estratificacion.view.main.Titulo',
@@ -33,224 +33,224 @@ Ext.define('Estratificacion.controller.Main',{
 		'Estratificacion.view.grid.elimina.Atipica',
 		'Estratificacion.view.window.EliminarAtipica'
 	],
-	
-	init: function (application){
+
+	init: function(application) {
 		this.control({
-			"menuppal #op-agregalado":{
+			"menuppal #op-agregalado": {
 				click: this.abrirFormLado
 			},
-			"menuppal #op-agregatipica":{
+			"menuppal #op-agregatipica": {
 				click: this.abrirBuscaTerreno
 			},
-			
-			"#buscaTerreno":{
+
+			"#buscaTerreno": {
 				click: this.buscarTerreno
 			},
-	
-			"#cancela":{
-				click:this.cerrarForm
-				
+
+			"#cancela": {
+				click: this.cerrarForm
+
 			},
 
-			"#op-modificaterreno":{
-				click:this.crearFormBuscaModificaTerreno
+			"#op-modificaterreno": {
+				click: this.crearFormBuscaModificaTerreno
 			},
-			
-			"#buscaModificaTerreno":{
-				click:this.buscaModificaTerreno
+
+			"#buscaModificaTerreno": {
+				click: this.buscaModificaTerreno
 			},
-			
-			"#op-eliminalado":{
-				click:this.abrirEliminaLado
+
+			"#op-eliminalado": {
+				click: this.abrirEliminaLado
 			},
-			
-			"#op-eliminatipica":{
-				click:this.abrirEliminaAtipica
+
+			"#op-eliminatipica": {
+				click: this.abrirEliminaAtipica
 			}
-			
-			
-		
+
+
+
 		});
-	
+
 	},
-	
-	crearFormLado:function(){
-		
-		var vLado=Ext.create('Estratificacion.view.window.Terreno');
+
+	crearFormLado: function() {
+
+		var vLado = Ext.create('Estratificacion.view.window.CrearLado');
 		return vLado;
 	},
-	
-	crearFormBuscarTerreno:function(){
-                 
-  	var formBuscarTerreno=Ext.create('Estratificacion.view.window.Terreno',{
-								buttons:[{
-									xtype:'button',
-									text:'Buscar',
-									itemId:'buscaTerreno'
-								},
-								{
-									xtype:'button',
-									text:'Cancelar',
-									itemId:'cancela'
-								}]
+
+	crearFormBuscarTerreno: function() {
+
+		var formBuscarTerreno = Ext.create('Estratificacion.view.window.Terreno', {
+			buttons: [{
+				xtype: 'button',
+				text: 'Buscar',
+				itemId: 'buscaTerreno'
+			}, {
+				xtype: 'button',
+				text: 'Cancelar',
+				itemId: 'cancela'
+			}]
 		});
 		return formBuscarTerreno;
 	},
-	
-	crearFormAtip:function(){
-		var vAtip=Ext.create('Estratificacion.view.window.CrearAtipica');
+
+	crearFormAtip: function() {
+		var vAtip = Ext.create('Estratificacion.view.window.CrearAtipica');
 		return vAtip;
 	},
-	
-	crearEliminaLado:function(){
-				
-		var eliminaLado= Ext.create('Estratificacion.view.window.EliminarLado');
-		
+
+	crearEliminaLado: function() {
+
+		var eliminaLado = Ext.create('Estratificacion.view.window.EliminarLado');
+
 		return eliminaLado;
 	},
-	crearEliminaAtipica:function(){
-		var eliminaAtipica=Ext.create('Estratificacion.view.window.EliminarAtipica');
-		
+	crearEliminaAtipica: function() {
+		var eliminaAtipica = Ext.create('Estratificacion.view.window.EliminarAtipica');
+
 		return eliminaAtipica;
 	},
-	
-	abrirFormLado:function (btn, e, eOpts){
-	
+
+	abrirFormLado: function(btn, e, eOpts) {
+
 		this.crearFormLado();
 	},
-	
-	abrirFormAtip:function (btn, e, eOpts){
-	
+
+	abrirFormAtip: function(btn, e, eOpts) {
+
 		this.crearFormAtip();
 	},
-	
-	abrirBuscaTerreno:function(btn, e, eOpts){
+
+	abrirBuscaTerreno: function(btn, e, eOpts) {
 		this.crearFormBuscarTerreno();
 	},
-	
-	abrirEliminaLado:function(btn, e, eOpts){
+
+	abrirEliminaLado: function(btn, e, eOpts) {
 		this.crearEliminaLado();
 	},
-	abrirEliminaAtipica:function(btn, e, eOpts){
+	abrirEliminaAtipica: function(btn, e, eOpts) {
 		this.crearEliminaAtipica();
 	},
-	buscarTerreno:function(btn, e, eOpts){
-		
+	buscarTerreno: function(btn, e, eOpts) {
 
-		var ventana=btn.up('window');
-		var formulario=ventana.down('form');
-		var validForm=formulario.getForm();
-			if(validForm.isValid()){
-				validForm.submit({
-					url:'php/BuscarTerreno.php',
-					waitMsg:'Ejecutando Consulta...',
-					waitTitle:'Buscando',
-					success:function(form,action){
-						
-						var data=Ext.JSON.decode(action.response.responseText);
-						
-						ventana.close();
-						
-						var vA= Ext.create('Estratificacion.view.window.CrearAtipica');
-						
-							Ext.getCmp('cod_predio').setValue(data.data.resultado.cod_predio);
-							Ext.getCmp('direccion').setValue(data.data.resultado.direccion);
-							Ext.getCmp('lado_manz').setValue(data.data.resultado.lado_manz);
-											
-										
-						vA.show();
-						 
-						
-						
-					},
-					failure:function(form, action){
-					var data=Ext.JSON.decode(action.response.responseText);
+
+		var ventana = btn.up('window');
+		var formulario = ventana.down('form');
+		var validForm = formulario.getForm();
+		if (validForm.isValid()) {
+			validForm.submit({
+				url: 'php/BuscarTerreno.php',
+				waitMsg: 'Ejecutando Consulta...',
+				waitTitle: 'Buscando',
+				success: function(form, action) {
+
+					var data = Ext.JSON.decode(action.response.responseText);
+
+					ventana.close();
+
+					var vA = Ext.create('Estratificacion.view.window.CrearAtipica');
+
+					Ext.getCmp('cod_predio').setValue(data.data.resultado.cod_predio);
+					Ext.getCmp('direccion').setValue(data.data.resultado.direccion);
+					Ext.getCmp('lado_manz').setValue(data.data.resultado.lado_manz);
+
+
+					vA.show();
+
+
+
+				},
+				failure: function(form, action) {
+					var data = Ext.JSON.decode(action.response.responseText);
 					Ext.Msg.show({
-						   title:'Error',
-						   msg: data.errors.reason,
-						   buttons: Ext.Msg.OK,
-						   icon: Ext.MessageBox.ERROR});
-					}
-				
-				});
-			}
-		
+						title: 'Error',
+						msg: data.errors.reason,
+						buttons: Ext.Msg.OK,
+						icon: Ext.MessageBox.ERROR
+					});
+				}
+
+			});
+		}
+
 	},
-	
-	crearFormBuscaModificaTerreno:function(btn, e, eOpts){
-	 
-		var formBuscaModificaTerreno=Ext.create('Estratificacion.view.window.Terreno',{
-											buttons:[{
-														xtype:'button',
-														text:'Buscar',
-														itemId:'buscaModificaTerreno'
-													},
-													{
-														xtype:'button',
-														text:'Cancelar',
-														itemId:'cancela'
-													}]
+
+	crearFormBuscaModificaTerreno: function(btn, e, eOpts) {
+
+		var formBuscaModificaTerreno = Ext.create('Estratificacion.view.window.Terreno', {
+			buttons: [{
+				xtype: 'button',
+				text: 'Buscar',
+				itemId: 'buscaModificaTerreno'
+			}, {
+				xtype: 'button',
+				text: 'Cancelar',
+				itemId: 'cancela'
+			}]
 		});
-		
+
 		return formBuscaModificaTerreno;
 	},
-	
-	buscaModificaTerreno:function(btn, e, eOpts){
-		
-		var ventana=btn.up('window');
-		var formulario=ventana.down('form');
-		var validForm=formulario.getForm();
-			if(validForm.isValid()){
-				validForm.submit({
-					url:'php/BuscaModificaTerreno.php',
-					waitMsg:'Ejecutando Consulta...',
-					waitTitle:'Buscando',
-					success:function(form,action){
-						
-						var data=Ext.JSON.decode(action.response.responseText);
-						
-						ventana.close();
-						
-						var vA= Ext.create('Estratificacion.view.window.EditarTerreno');
-						
-							var manzana=data.data.resultado.lado_manz;
-							var lado=data.data.resultado.lado_manz;
-						
-							Ext.getCmp('cod_predio').setValue(data.data.resultado.cod_predio);
-							Ext.getCmp('direccion').setValue(data.data.resultado.direccion);
-							Ext.getCmp('cod_lado').setValue(lado.slice(8,9));
-							Ext.getCmp('manzana').setValue(manzana.slice(0,8));
 
-						vA.show();
-						
-						
-					},
-					failure:function(form, action){
-					var data=Ext.JSON.decode(action.response.responseText);
+	buscaModificaTerreno: function(btn, e, eOpts) {
+
+		var ventana = btn.up('window');
+		var formulario = ventana.down('form');
+		var validForm = formulario.getForm();
+		if (validForm.isValid()) {
+			validForm.submit({
+				url: 'php/BuscaModificaTerreno.php',
+				waitMsg: 'Ejecutando Consulta...',
+				waitTitle: 'Buscando',
+				success: function(form, action) {
+
+					var data = Ext.JSON.decode(action.response.responseText);
+
+					ventana.close();
+
+					var vA = Ext.create('Estratificacion.view.window.EditarTerreno');
+
+					var manzana = data.data.resultado.lado_manz;
+					var lado = data.data.resultado.lado_manz;
+
+					Ext.getCmp('cod_predio').setValue(data.data.resultado.cod_predio);
+					Ext.getCmp('direccion').setValue(data.data.resultado.direccion);
+					Ext.getCmp('cod_lado').setValue(lado.slice(8, 9));
+					Ext.getCmp('manzana').setValue(manzana.slice(0, 8));
+
+					vA.show();
+
+
+				},
+				failure: function(form, action) {
+					var data = Ext.JSON.decode(action.response.responseText);
 					Ext.Msg.show({
-						   title:'Error',
-						   msg: data.errors.reason,
-						   buttons: Ext.Msg.OK,
-						   icon: Ext.MessageBox.ERROR});
-					}
-				
-				});
-			}
-	
+						title: 'Error',
+						msg: data.errors.reason,
+						buttons: Ext.Msg.OK,
+						icon: Ext.MessageBox.ERROR
+					});
+				}
+
+			});
+		}
+
 	},
-	
-	cerrarForm:function (btn, e, eOpts){
-	
-		var ventana=btn.up('window');
-		
-		var formulario=ventana.down('form');
-		
-    	formulario.getForm().reset();
+
+	cerrarForm: function(btn, e, eOpts) {
+
+		var ventana = btn.up('window');
+
+		var formulario = ventana.down('form');
+
+		formulario.getForm().reset();
 
 		ventana.close();
 	}
-	
-	
-	
-	
+
+
+
+
 });

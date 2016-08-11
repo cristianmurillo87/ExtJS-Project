@@ -8,7 +8,7 @@ Ext.define('Estratificacion.controller.chart.Estrato', {
 	],
 	views: ['Estratificacion.view.chart.Estrato'],
 
-	init: function (application) {
+	init: function(application) {
 		this.control({
 			"#op-distrestato": {
 				click: this.abrirDistrEstrato
@@ -18,11 +18,11 @@ Ext.define('Estratificacion.controller.chart.Estrato', {
 			}
 		});
 	},
-	abrirDistrEstrato: function (btn, e, eOpts) {
+	abrirDistrEstrato: function(btn, e, eOpts) {
 		this.crearDistrEstrato();
 
 	},
-	crearDistrEstrato: function () {
+	crearDistrEstrato: function() {
 
 		var ventana = Ext.getCmp('vent-grafico');
 		if (!ventana) {
@@ -33,7 +33,7 @@ Ext.define('Estratificacion.controller.chart.Estrato', {
 			ventana.setVisible(true);
 		}
 	},
-	genDistrGrafico: function (btn, e, eOpts) {
+	genDistrGrafico: function(btn, e, eOpts) {
 
 		var mascara = new Ext.LoadMask(Ext.getCmp('graficarea'), {
 			msg: 'Generando gr&aacutefico...'
@@ -56,7 +56,7 @@ Ext.define('Estratificacion.controller.chart.Estrato', {
 			params: {
 				estrato: estrato
 			},
-			success: function (response) {
+			success: function(response) {
 
 				var store = Ext.create('Ext.data.JsonStore', {
 					fields: ['comuna', 'total']
@@ -92,10 +92,10 @@ Ext.define('Estratificacion.controller.chart.Estrato', {
 									trackMouse: true,
 									width: 120,
 									height: 28,
-									renderer: function (storeItem, item) {
+									renderer: function(storeItem, item) {
 
 										var total = 0;
-										store.each(function (rec) {
+										store.each(function(rec) {
 											total += rec.get('total');
 										});
 										this.setTitle('Comuna ' + storeItem.get('comuna') + ': ' + Math.round(storeItem.get('total') / total * 100) + '%');
@@ -151,11 +151,11 @@ Ext.define('Estratificacion.controller.chart.Estrato', {
 									trackMouse: true,
 									width: 160,
 									height: 28,
-									renderer: function (storeItem, item) {
+									renderer: function(storeItem, item) {
 										this.setTitle('Comuna ' + storeItem.get('comuna') + ': ' + storeItem.get('total') + ' predios');
 									}
 								},
-								renderer: function (sprite, record, attr, index, store) {
+								renderer: function(sprite, record, attr, index, store) {
 									return Ext.apply(attr, {
 										fill: "#04B486",
 										stroke: "#000",
@@ -202,11 +202,11 @@ Ext.define('Estratificacion.controller.chart.Estrato', {
 									trackMouse: true,
 									width: 160,
 									height: 28,
-									renderer: function (storeItem, item) {
+									renderer: function(storeItem, item) {
 										this.setTitle('Comuna ' + storeItem.get('comuna') + ': ' + storeItem.get('total') + ' predios');
 									}
 								},
-								renderer: function (sprite, record, attr, index, store) {
+								renderer: function(sprite, record, attr, index, store) {
 									return Ext.apply(attr, {
 										fill: "#04B486",
 										stroke: "#000",
