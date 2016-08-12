@@ -2,7 +2,8 @@ Ext.define('Estratificacion.controller.lista.Atipica', {
 	extend: 'Ext.app.Controller',
 	models: ['Estratificacion.model.Atipica'],
 	stores: ['Estratificacion.store.Atipica'],
-	views: ['Estratificacion.view.grid.lista.Atipica',
+	views: [
+		'Estratificacion.view.grid.lista.Atipica',
 		'Estratificacion.view.window.Lista'
 	],
 	init: function(application) {

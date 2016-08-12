@@ -2,7 +2,8 @@ Ext.define('Estratificacion.controller.lista.Lado', {
 	extend: 'Ext.app.Controller',
 	models: ['Estratificacion.model.Lado'],
 	stores: ['Estratificacion.store.Lado'],
-	views: ['Estratificacion.view.grid.lista.Lado',
+	views: [
+		'Estratificacion.view.grid.lista.Lado',
 		'Estratificacion.view.window.Lista'
 	],
 	init: function(application) {

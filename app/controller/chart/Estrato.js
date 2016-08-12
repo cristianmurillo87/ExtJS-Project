@@ -1,9 +1,11 @@
 Ext.define('Estratificacion.controller.chart.Estrato', {
 	extend: 'Ext.app.Controller',
-	models: ['Estratificacion.model.Estrato',
+	models: [
+		'Estratificacion.model.Estrato',
 		'Estratificacion.model.Grafico'
 	],
-	stores: ['Estratificacion.store.Estrato',
+	stores: [
+		'Estratificacion.store.Estrato',
 		'Estratificacion.store.Estrato'
 	],
 	views: ['Estratificacion.view.chart.Estrato'],

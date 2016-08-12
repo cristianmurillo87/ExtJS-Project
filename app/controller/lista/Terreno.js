@@ -2,7 +2,8 @@ Ext.define('Estratificacion.controller.lista.Terreno', {
 	extend: 'Ext.app.Controller',
 	models: ['Estratificacion.model.Terreno'],
 	stores: ['Estratificacion.store.Terreno'],
-	views: ['Estratificacion.view.grid.lista.Terreno',
+	views: [
+		'Estratificacion.view.grid.lista.Terreno',
 		'Estratificacion.view.window.Lista'
 	],
 	init: function(application) {

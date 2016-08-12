@@ -13,22 +13,22 @@ $c= new Conexion;
 $c->conectarBd();
 
 //consultar el terreno
-$query1= "select cod_predio from terrenos where st_intersects(the_geom, st_geomfromtext('POINT(".$x." ".$y.")',97393))";
+$query1= "select cod_predio from terrenos where st_intersects(the_geom, st_geomfromtext('POINT(".$x." ".$y.")',97664))";
 
 //consultar los predios
 $query2= "select a.cod_pred_n cod_pred_n from predios a inner join terrenos b on a.cod_predio=b.cod_predio where st_intersects(b.the_geom,
-    st_geomfromtext('POINT(".$x." ".$y.")',97393)) order by a.cod_pred_n";
+    st_geomfromtext('POINT(".$x." ".$y.")',97664)) order by a.cod_pred_n";
 
 //consultar la manzana
-//$query3= "select cod_manzan from manzana where st_intersects(the_geom, st_geomfromtext('POINT(".$x." ".$y.")',97393))";
+//$query3= "select cod_manzan from manzana where st_intersects(the_geom, st_geomfromtext('POINT(".$x." ".$y.")',97664))";
 
 //consultar los lados de manzana
 $query4= "select a.lado_manz lado_manz from lados a inner join terrenos b on a.cod_manzana=b.cod_manzan where st_intersects(b.the_geom,
-    st_geomfromtext('POINT(".$x." ".$y.")',97393)) order by a.lado_manz";
+    st_geomfromtext('POINT(".$x." ".$y.")',97664)) order by a.lado_manz";
 
 //consultar los clientes de Emcali
 $query5= "select a.cod_cliente cod_cliente from emcali_clientes a inner join terrenos b on a.cod_predio=b.cod_predio where st_intersects(b.the_geom,
-    st_geomfromtext('POINT(".$x." ".$y.")',97393)) order by a.cod_cliente";
+    st_geomfromtext('POINT(".$x." ".$y.")',97664)) order by a.cod_cliente";
 
 $resultado1=pg_query($query1);
 
