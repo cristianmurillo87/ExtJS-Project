@@ -10,12 +10,10 @@ Ext.define('Estratificacion.view.main.Menu', {
 			cls: 'x-btn-default-small',
 			menu: [{
 				text: 'Crear/ Editar Lado de Manzana',
-				itemId: 'op-agregalado',
-				disabled: false
+				itemId: 'op-agregalado'
 			}, {
 				text: 'Crear/ Editar Atipicidad',
-				itemId: 'op-agregatipica',
-				disabled: true
+				itemId: 'op-agregatipica'
 			}]
 		}, {
 			text: 'MODIFICACIONES',
@@ -23,16 +21,13 @@ Ext.define('Estratificacion.view.main.Menu', {
 			plain: true,
 			menu: [{
 				text: 'Editar Informaci&oacuten de Terreno',
-				itemId: 'op-modificaterreno',
-				disabled: true
+				itemId: 'op-modificaterreno'
 			}, {
 				text: 'Eliminar Lado de Manzana',
-				itemId: 'op-eliminalado',
-				disabled: true
+				itemId: 'op-eliminalado'
 			}, {
 				text: 'Eliminar Atipicidad',
-				itemId: 'op-eliminatipica',
-				disabled: true
+				itemId: 'op-eliminatipica'
 			}]
 		}, {
 			text: 'REPORTES',
@@ -87,6 +82,7 @@ Ext.define('Estratificacion.view.main.Menu', {
 	listeners: {
 		beforerender: function(eOpts) {
 			var username = Ext.ComponentQuery.query('#menu-user-option')[0];
+			var agregalado = Ext.ComponentQuery.query('#op-agregalado')[0];
 			var agregatipica = Ext.ComponentQuery.query('#op-agregatipica')[0];
 			var modificaterreno = Ext.ComponentQuery.query('#op-modificaterreno')[0];
 			var eliminalado = Ext.ComponentQuery.query('#op-eliminalado')[0];
@@ -95,6 +91,7 @@ Ext.define('Estratificacion.view.main.Menu', {
 			var loggedUser = Ext.state.Manager.get('LoggedUserNameName') + " " + Ext.state.Manager.get('LoggedUserNameLastName');
 
 			agregatipica.disabled = !Ext.state.Manager.get('isLoggedUserAdmin');
+			agregalado.disabled = !Ext.state.Manager.get('isLoggedUserAdmin');
 			modificaterreno.disabled = !Ext.state.Manager.get('isLoggedUserAdmin');
 			eliminalado.disabled = !Ext.state.Manager.get('isLoggedUserAdmin');
 			eliminatipica.disabled = !Ext.state.Manager.get('isLoggedUserAdmin');
