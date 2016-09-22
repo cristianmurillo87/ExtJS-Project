@@ -541,13 +541,13 @@ var pmapa = Ext.create('GeoExt.panel.Map', {
 	zoom: 6,
 	layers: [
 		new OpenLayers.Layer.WMS(
-			"Ortofoto 1:1000",
-			"http://172.18.10.127:8081/geoserver/app_estratificacion/wms", {
-				layers: 'app_estratificacion:Ortofoto_Catastro_2010',
+			"Ortofoto Cali (2010)",
+			"http://172.18.10.127/cgi-bin/mapserv.exe?map=E:/ms4w/Apache/maps/papiros.map&", {
+				layers: 'Ortofoto Cali (2010)',
 				transparent: true,
 				projection: wgs84
 			}, {
-				displayOutsideMaxExtent: false,
+				displayOutsideMaxExtent: true,
 				displayInLayerSwitcher: true,
 				visibility: false,
 				isBaseLayer: false,
@@ -714,7 +714,7 @@ var lyrsCatastro = Ext.create('GeoExt.tree.LayerLoader', {
 var lyrsRaster = Ext.create('GeoExt.tree.LayerLoader', {
 	filter: function(record) {
 		var layer = record.getLayer();
-		return layer.name == "Ortofoto 1:1000";
+		return layer.name == "Ortofoto Cali (2010)";
 	}
 });
 
