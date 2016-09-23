@@ -371,7 +371,7 @@ var sv_window = Ext.create('Ext.window.Window', {
 	closeAction: 'hide',
 	listeners: {
 		close: function() {
-			streetViewCtrl.deactivate();
+			//streetViewCtrl.deactivate();
 			mapa.getViewport().style.cursor = 'auto';
 		}
 	}
@@ -409,10 +409,10 @@ OpenLayers.Control.Click = OpenLayers.Class(
 
 var streetViewCtrl = new OpenLayers.Control.Click();
 mapa.addControl(streetViewCtrl);
+streetViewCtrl.activate();
+//mapa.on('')
 
-
-
-control = Ext.create('GeoExt.Action', {
+/*control = Ext.create('GeoExt.Action', {
 	text: '',
 	itemId: 'streetview',
 	iconCls: 'pegman',
@@ -437,7 +437,7 @@ control = Ext.create('GeoExt.Action', {
 
 mapa.addControl(streetViewCtrl);
 controles["streetview"] = control;
-toolbar.push(Ext.create('Ext.button.Button', control));
+toolbar.push(Ext.create('Ext.button.Button', control));*/
 
 // Control Informacion
 OpenLayers.Control.Click = OpenLayers.Class(
