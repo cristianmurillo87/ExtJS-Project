@@ -27,8 +27,7 @@ $query4= "select a.lado_manz lado_manz from lados a inner join terrenos b on a.c
     st_geomfromtext('POINT(".$x." ".$y.")',97664)) order by a.lado_manz";
 
 //consultar los clientes de Emcali
-$query5= "select a.cod_cliente cod_cliente from emcali_clientes a inner join terrenos b on a.cod_predio=b.cod_predio where st_intersects(b.the_geom,
-    st_geomfromtext('POINT(".$x." ".$y.")',97664)) order by a.cod_cliente";
+$query5= "select a.cod_cliente cod_cliente from emcali_clientes a where st_intersects((select b.the_geom from terrenos b where st_intersects((select st_geomfromtext('POINT(".$x." ".$y.")',97664)), b.the_geom)),a.the_geom)";
 
 $resultado1=pg_query($query1);
 
@@ -68,6 +67,11 @@ $resultado4=pg_query($query4);
 $resultado5=pg_query($query5);
 
 	if($resultado5){
+		$rows = pg_num_rows($resultado5);
+		if($rows < 1){
+			$resultado5 = pg_query("select a.cod_cliente cod_cliente from emcali_clientes a left outer join terrenos b on a.cod_predio = b.cod_predio where 
+				st_intersects(b.the_geom,st_geomfromtext('POINT(".$x." ".$y.")',97664)) order by a.cod_cliente");
+		}
 		$cliente=array();
 		while($e= pg_fetch_assoc($resultado5)) {
 			$cliente[] =$e;

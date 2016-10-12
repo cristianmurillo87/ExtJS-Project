@@ -39,7 +39,7 @@
 }
 
 .measure-area{
-	background-image: url(../images/ruler_square.png) !important;
+	background-image: url(../images/select.png) !important;
 }
 
 .query{
@@ -104,7 +104,7 @@
 
 }
 .clear-selected{
-	background-image: url(../images/vector_delete.gif) !important;
+	background-image: url(../images/recycle_bin.png) !important;
 }
 
 .pegman{

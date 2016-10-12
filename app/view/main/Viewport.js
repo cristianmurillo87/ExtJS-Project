@@ -36,6 +36,7 @@ var piepanel = Ext.create('Ext.panel.Panel', {
 
 });
 
+var msg=""
 
 // Configuracion de las caracteristicas del mapa
 
@@ -149,7 +150,7 @@ controles["zoomprev"] = control;
 toolbar.push(Ext.create('Ext.button.Button', control));
 
 // Control Seleccionar
-control = Ext.create('GeoExt.Action', {
+/*control = Ext.create('GeoExt.Action', {
 	text: '',
 	iconCls: 'select',
 	map: mapa,
@@ -158,7 +159,7 @@ control = Ext.create('GeoExt.Action', {
 
 
 controles["select"] = control;
-toolbar.push(Ext.create('Ext.button.Button', control));
+toolbar.push(Ext.create('Ext.button.Button', control));*/
 
 // Control Medir Longitud
 var sketchStyle = {
@@ -219,17 +220,21 @@ var dist = new OpenLayers.Control.Measure(OpenLayers.Handler.Path, {
 				]);
 				var lastLengthArr = this.getBestLength(geom);
 				mparcial = lastLengthArr[0].toFixed(3);
+				
 			}
-
-			var l = Ext.Msg.show({
+			
+			msg = 'Segmento: ' + mparcial + ' ' + event.units + ' Total: ' + Number(event.measure).toFixed(3) + ' ' + event.units;
+			toolbar.push(msg);
+			
+			/*var l = Ext.Msg.show({
 				title: 'Medir Distancia',
 				msg: 'Medicion de linea<br>Segmento: ' + mparcial + ' ' + event.units + '</br>Total: ' + Number(event.measure).toFixed(3) + ' ' + event.units,
 				padding: '0 2 0 2',
 				height: 40,
 				closable: true,
-				modal: false /*, buttons:Ext.Msg.OK*/
+				modal: false , buttons:Ext.Msg.OK
 			});
-			l.setXY([1100, 100]);
+			l.setXY([1100, 100]);*/
 		}
 	}
 });
@@ -410,34 +415,7 @@ OpenLayers.Control.Click = OpenLayers.Class(
 var streetViewCtrl = new OpenLayers.Control.Click();
 mapa.addControl(streetViewCtrl);
 streetViewCtrl.activate();
-//mapa.on('')
 
-/*control = Ext.create('GeoExt.Action', {
-	text: '',
-	itemId: 'streetview',
-	iconCls: 'pegman',
-	control: streetViewCtrl,
-	map: mapa,
-	enableToggle: true,
-	pressed: false,
-	listeners: {
-		activate: function() {
-			streetViewCtrl.activate();
-
-		},
-		deactivate: function() {
-			streetViewCtrl.deactivate();
-		}
-	},
-	tooltip: "Street View",
-	allowDepress: true,
-	activateOnEnable: true,
-	deactivateOnEnable: true
-});
-
-mapa.addControl(streetViewCtrl);
-controles["streetview"] = control;
-toolbar.push(Ext.create('Ext.button.Button', control));*/
 
 // Control Informacion
 OpenLayers.Control.Click = OpenLayers.Class(
@@ -532,6 +510,12 @@ var resultStyleMap = new OpenLayers.StyleMap({
 resultLayer = new OpenLayers.Layer.Vector("Resultado", {
 	styleMap: resultStyleMap
 });
+
+//toolbar.push("->");
+toolbar.push(msg);
+
+
+
 
 // Fin de los controles
 //Creacion del map panel
