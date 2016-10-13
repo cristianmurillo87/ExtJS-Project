@@ -29,7 +29,10 @@
 	$resultado=pg_query($consulta);
 	
 	if($resultado){
-
+		$num = pg_num_rows($resultado);
+		if($num < 1 && $campo == 'cod_predio'){
+			$resultado = pg_query("select st_astext(the_geom) wkt from terrenos where cod_predio='".$buscar."'");
+		}
 
 	$respuesta = array();
 	while($geometria= pg_fetch_assoc($resultado)) {
