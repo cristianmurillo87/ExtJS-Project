@@ -6,7 +6,7 @@ Ext.define("Estratificacion.Global", {
 		this.initConfig(config);
 	},
 	config: {
-		baseUrl: window.location.origin + '/estratificacion',
+		baseUrl: window.location.origin + window.location.pathname,
 		usuario: "Some",
 		nombre: "User",
 		apellido: "Logged",

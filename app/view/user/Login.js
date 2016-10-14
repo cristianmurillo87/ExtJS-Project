@@ -54,19 +54,17 @@ Ext.define('Estratificacion.view.user.Login', {
 
 					if (form.isValid()) {
 						Ext.Ajax.request({
-							url: 'php/log/login.php',
+							url: 'http://172.18.10.127:9000/laravel/public/api/authenticate?usuario='+vals.usuario+'&password='+vals.password,
+							headers: { 'Content-Type': 'application/json' },
 							method: 'POST',
-							params: {
-								usuario: vals.usuario,
-								password: vals.password
-							},
 							success: function(response) {
 								var data = Ext.JSON.decode(response.responseText);
-								var success = data.success;
+								var token = data.token;
 
-								if (success) {
-									var message = data.message;
+								if (token) {
 									Ext.state.Manager.set('isUserLoggedIn', true);
+									Ext.state.Manager.set('token', token);
+									/*Ext.state.Manager.set('isUserLoggedIn', true);
 									Ext.state.Manager.set('LoggedUserName', data.message.nom_usuario);
 									Ext.state.Manager.set('LoggedUserNameName', data.message.nombre);
 									Ext.state.Manager.set('LoggedUserNameLastName', data.message.apellido);
@@ -88,12 +86,12 @@ Ext.define('Estratificacion.view.user.Login', {
 											w.close();
 											Ext.create('Estratificacion.view.main.Viewport');
 										}
-									});
+									});*/
 
 								} else {
 									Ext.Msg.show({
 										title: 'Error',
-										msg: data.message,
+										msg: data.error,
 										buttons: Ext.Msg.OK,
 										icon: Ext.Msg.ERROR
 									});
