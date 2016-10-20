@@ -102,7 +102,7 @@ Ext.define('Estratificacion.view.user.Login', {
 								var data = Ext.JSON.decode(response.responseText);
 								Ext.Msg.show({
 									title: 'Error',
-									msg: data.message,
+									msg: data.error,
 									buttons: Ext.Msg.OK,
 									icon: Ext.Msg.ERROR
 								});
